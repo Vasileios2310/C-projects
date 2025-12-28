@@ -14,8 +14,8 @@ REAL: Sum1 , Sum2 , SumTemp
     SumTemp := 0            // Αρχικοποίηση μεταβλητής για αποθηλευση αθροισματος : 1 + 2 + 3 + ... + N
 
     ΓΙΑ i απο 1 ΜΕΧΡΙ Ν     //Βρίσκουμε πρώτα το Sum1 και μετά το SumTemp, διατρέχοντας το πλήθος αριθμών Ν
-        Sum1 = Sum1 + i^3
-        SumTemp = SumTemp + i 
+        Sum1 := Sum1 + i^3
+        SumTemp := SumTemp + i 
     ΓΙΑ ΤΕΛΟΣ
 
     Sum2 := SumTemp ^2      // Βρίσκουμε το Sum2 , με τετραγωνισμό του SumTemp

@@ -1,32 +1,44 @@
 #include <stdio.h>
-
+#include <stdlib.h>
+/**
+    Το πρόγραμμα ζητά έναν ακέραιο αριθμό N με 100 ≤ N ≤ 300.
+    Υπολογίζει το άθροισμα των κύβων των πρώτων N φυσικών αριθμώ ΤΥΠΟΣ 1.
+    Υπολογίζει το τετράγωνο του αθροίσματος των πρώτων N φυσικών αριθμών ΤΥΠΟΣ 2.
+    Συγκρίνει τα δύο αποτελέσματα.
+    Επαληθεύει τα αποτελέσματα των δυο τύπως είναι ισα ή οχι.
+ */
 int main(void)
 {
+    system("chcp 65001>nul"); // εκτύπωση ελληνικών
+    // Αρχικοποίηση μεταβλητών
     int N;
     int i;
-    long long Sum1 = 0;
-    long long Sum2 = 0;
-    long long SumTemp = 0;
+    long long Sum1 = 0; // ΤΥΠΟΣ 1
+    long long Sum2 = 0; // ΤΥΠΟΣ 2
+    long long SumTemp = 0; // Προσωρινή μεταβλητή για να μπορέσουμε να συγκρίνουμε Sum1 και Sum2
 
+    // Δώσε το ίδιο μήνυμα στο χρήστη εφόσον συνεχίζει και δίνει μη έγκυρες τιμές
     do{
-        printf("Give a number N (100 to 300)\n");
+        printf("Δώσε αριθμό μεγαλύτερο ή ίσο του 100 και μικρότερο ή ίσο του 300\n");
         scanf("%d" , &N);
     } while (N < 100 || N > 300);
     
+    // Βρίσκουμε το Sum1 και το SumTemp
     for (i = 1; i <=N; i++){
         Sum1 += (long long)i*i*i;
         SumTemp += i; 
     }
 
+    // Βρίσκουμε το Sum2 
     Sum2 = SumTemp*SumTemp;
 
-    printf("The sum for SUM1 is %lld\n", Sum1);
-    printf("The sum for SUM2 is %lld\n", Sum2);
+    printf("Το άθροισμα SUM1 μέ βάση τον Τύπο 1 είναι %lld\n", Sum1);
+    printf("Το άθροισμα SUM2 μέ βάση τον Τύπο 2 είναι %lld\n", Sum2);
 
+    // Συγκρίνουμε τις δυο μεταβλητές και δίνουμε το ανάλογο μήνυμα
     if (Sum1 == Sum2)
-        printf("The theory is valid\n");
+        printf("Το θεώρημα ισχύει\n");
     else
-        printf("The theory is not valid\n");
-
+        printf("Το θεώρημα δεν ισχύει\n");
     return 0;
 }

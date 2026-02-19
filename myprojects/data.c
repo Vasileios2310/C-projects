@@ -6,8 +6,12 @@
  */
 int main(void)
 {
+
     system("chcp 65001>nul"); // εκτύπωση ελληνικών
     const int N = 8;
+
+    int N = 8;
+    
     int choice_2023;
     int choice_2024;
     const int MIN_FIRES = 100;

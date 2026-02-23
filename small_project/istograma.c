@@ -3,14 +3,20 @@
 #include <math.h>
 
 // Δομή κόμβου
+/**
+ * 
+ * Κάθε κόμβος αποθηκεύει μία ακέραια τιμή (1..100) και δείκτη προς τον επόμενο κόμβο της λίστας
+ */
 typedef struct Node {
     int data;  // η πληροφορία
     struct Node* next;  // ο δείκτης
 } Node;
 
-
-
 // --------- Συνάρτηση εισαγωγής νέου κόμβου στο τέλος της λίστας  -------
+/**
+ * Δεσμεύει δυναμικά μνήμη για έναν νέο κόμβο και τον τοποθετεί στο τέλος της λίστας.
+ * Αν η λίστα είναι κενή, ο νέος κόμβος γίνεται η κεφαλή (head).
+ */
 void insert_end(Node** head , int data) {
     Node* new_node = (Node*)malloc(sizeof(Node));
     if(new_node == NULL){
@@ -28,9 +34,14 @@ void insert_end(Node** head , int data) {
     {
         current = current->next;
     }
+    current -> next = new_node;
 }
 
-
+/**
+ * Ο χρήστης εισάγει ακέραιες τιμές στο διάστημα [1,100].
+ * Η εισαγωγή τερματίζεται όταν δοθεί 0.
+ * Περιλαμβάνει έλεγχο εγκυρότητας.
+ */
 // ------------- Συνάρτηση δημιουργίας της λίστας --------------------
 Node* create_list() {
     Node* head = NULL;
@@ -57,7 +68,9 @@ Node* create_list() {
 }
 
 
-
+/**
+ * Χρησιμοποιείται ο τύπος της τυπικής απόκλισης πληθυσμού (διαίρεση με n).
+ */
 // -------------------- Υπολογισμός τυπικής απόκλισης --------------------
 int calculate_std_dev(Node* head, double* stdev) {
     if(head == NULL){
@@ -75,6 +88,7 @@ int calculate_std_dev(Node* head, double* stdev) {
 
     double mean = sum / n;
     double variance_sum = 0.0;
+    current = head;
     while(current != NULL){
         double diff = current->data - mean;
         variance_sum += diff * diff;
@@ -84,9 +98,10 @@ int calculate_std_dev(Node* head, double* stdev) {
     return 1;
 }
 
-
-
-
+/**
+ * Η συνάρτηση επιστρέφει μέσω δείκτη τη συχνότερη τιμή.
+ * Σε περίπτωση ισοπαλίας, επιστρέφεται η πρώτη τιμή με τη μέγιστη συχνότητα.
+ */
 // -------------------- Υπολογισμός ιστογράμματος --------------------
 int build_histogram(Node* head , int histogram[100] , int* mode) {
     if(head == NULL){
@@ -108,7 +123,7 @@ int build_histogram(Node* head , int histogram[100] , int* mode) {
     int bestVal = 1;
 
     for(int i= 1; i < 100; i++){
-        if(histogram[0] > maxVal){
+        if(histogram[i] > maxVal){
             maxVal = histogram[i];
             bestVal = i + 1;
         }
@@ -118,6 +133,9 @@ int build_histogram(Node* head , int histogram[100] , int* mode) {
 }
 
 
+/**
+ * Για κάθε τιμή που εμφανίζεται τουλάχιστον μία φορά, εκτυπώνει τιμή με ***
+ */
 // -------------------- Εκτύπωση ιστογράμματος --------------------
 void print_histogram(int histogram[100]){
     for(int i = 0; i < 100; i++){
@@ -131,7 +149,9 @@ void print_histogram(int histogram[100]){
     }
 }
 
-
+/**
+ * Εκτυπώνει όλα τα στοιχεία της λίστας.
+ */
 // -------------------- Εκτύπωση λίστας --------------------
 void print_list( Node* head) {
     printf("Λιστα : [");
@@ -161,8 +181,13 @@ void free_list(Node* head) {
     }
 }
 
+/**
+* Διατρέχει τη λίστα κόμβο-κόμβο και καλεί free() για κάθε κόμβο
+*/
 // -------------------- Main --------------------
 int main() {
+
+    system("chcp 65001>nul"); // εκτύπωση ελληνικών
     Node* list = create_list();
 
     print_list(list);

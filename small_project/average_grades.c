@@ -70,7 +70,6 @@ void input_data()
 }
 
 
-
 /* Υπολογισμός Τελικού Μέσου Όρου (αγνοώντας μέγιστο και ελάχιστο) */
 void compute_average()
 {
@@ -87,8 +86,7 @@ void compute_average()
             if (g < min) min = g;
             if (g > max) max = g;
         }
-
-        float avg = (sum - min - max) / (float)(NUM_OF_JUDGES - 2);
+        TelikosMesosOros[i] = (sum - min - max) / (float)(NUM_OF_JUDGES - 2);
     }
 }
 
@@ -119,7 +117,7 @@ void print_results(void)
         for ( int j = 0; j < NUM_OF_JUDGES; j++)
         {
             int g = Vathmoi[i][j];
-            printf(" %2d" , g);
+            printf(" %2d | " , g);
 
             sum += g;
             if (g < min) min = g;
@@ -134,7 +132,6 @@ void print_results(void)
 /* Εμφάνιση Νικητών */
 void show_winners()
 {
-
     float max_avg = -1.0f;
     for(int i = 0; i < NUM_OF_ARTISTS; i++){
         int sum = 0;
@@ -169,7 +166,7 @@ void show_winners()
         }
         float avg = (sum - min - max ) / (float)(NUM_OF_JUDGES - 2);
         if(avg >= max_avg - 0.0001f && avg <= max_avg + 0.0001f){
-             printf("ΝΙΚΗΤΗΣ : Καλλιτέχνης με ΚΚ %d =  (M.O. = %5.2f\n)" , i ,  max_avg);
+             printf("ΝΙΚΗΤΗΣ : Καλλιτέχνης με ΚΚ %d =  (M.O. = %.2f\n)" , KodikosKallitexni[i] ,  max_avg);
         }
     }
 }

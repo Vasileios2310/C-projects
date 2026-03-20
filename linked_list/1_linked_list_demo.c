@@ -1,12 +1,12 @@
-#include <stdio.h>
-#include <stdlib.h>
-
 /*
 A linked list is a linear data structure made of nodes connected using pointers. 
 Each node has: Data: The value stored in the node. Pointer: A reference to the next node.
 Nodes are not stored in contiguous memory like arrays; they can be anywhere in memory.
 To access a node, we start from the head and traverse sequentially through the list
 */
+
+#include <stdio.h>
+#include <stdlib.h>
 
 /*Define the Node structure */
 struct Node

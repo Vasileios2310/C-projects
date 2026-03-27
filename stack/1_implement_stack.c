@@ -3,7 +3,7 @@
 #include <stdbool.h>
 
 // define the maximum capacity of the stack
-#define MAX_SIZE  100
+#define MAX_SIZE 100
 
 // define the structure of the stack
 typedef struct {
@@ -58,6 +58,7 @@ int peek(Stack *stack){
 }
 
 int main(){
+    // stack --> struct
     Stack stack;
     initialize(&stack);
 
@@ -78,6 +79,5 @@ int main(){
     {
         printf("Top element into the stack is %d\n" , peek(&stack));
         printf("Popped element from the stack is %d\n" , pop(&stack));
-        printf("---stack is now empty---");
     }
 }

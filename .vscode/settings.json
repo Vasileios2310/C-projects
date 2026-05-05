@@ -1,8 +1,9 @@
 {
-    "C_Cpp.autocomplete": "disabled",
+    "C_Cpp.autocomplete": "default",
     "editor.suggest.selectionMode": "whenTriggerCharacter",
     "editor.suggestOnTriggerCharacters": true,
     "editor.inlineSuggest.triggerCommandOnProviderChange": true,
     "terminal.integrated.suggest.suggestOnTriggerCharacters": true,
-    "C_Cpp.default.compilerPath": "/usr/bin/clang"
+    "C_Cpp.default.compilerPath": "/usr/bin/clang",
+    "C_Cpp.autocompleteAddParentheses": true
 }
